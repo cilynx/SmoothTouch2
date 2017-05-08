@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SmoothTouch2</string>
+
+    <string-array name="machine_types">
+        <item>Mill</item>
+        <item>Lathe</item>
+        <item>Laser</item>
+        <item>3D Printer</item>
+    </string-array>
+
+</resources>

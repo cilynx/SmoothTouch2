@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:key="mill_settings">
+
+    <ListPreference
+        android:key="machine_type"
+        android:title="Machine Type"
+        android:entries="@array/machine_types"
+        android:entryValues="@array/machine_types"
+        android:dialogTitle="Machine Type" />
+
+    <EditTextPreference
+        android:key="hostname"
+        android:title="Hostname / IP Address"
+        android:dialogTitle="Hostname / IP Address" />
+
+    <CheckBoxPreference
+        android:key="connect"
+        android:title="Connect"
+        android:summaryOn="Disconnect from this machine so you don't hurt yourself."
+        android:summaryOff="Connect to this machine to make cool stuff." />
+
+</PreferenceScreen>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/surface_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:paddingBottom="64dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/set_upper_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="setUpperLeft"
+            android:text="Upper Left"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/upper_left_x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:textSize="50sp" />
+
+            <EditText
+                android:id="@+id/upper_left_y"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:textSize="50sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/set_lower_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="setLowerRight"
+            android:text="Lower Right"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/lower_right_x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:textSize="50sp" />
+
+            <EditText
+                android:id="@+id/lower_right_y"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:textSize="50sp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/set_tool_diameter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="Tool Diameter"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/tool_diameter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:text="1"
+                android:textSize="50sp" />
+
+            <ToggleButton
+                android:id="@+id/tool_unit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textOff="mm"
+                android:textOn="inch"
+                android:textSize="50sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/surface_the_part"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="surfaceThePart"
+            android:text="GO!"
+            android:textSize="50sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/set_start_depth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="setStartDepth"
+            android:text="Start Depth"
+            android:textSize="50sp" />
+
+        <EditText
+            android:id="@+id/start_depth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="50sp" />
+
+        <Button
+            android:id="@+id/set_end_depth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="setEndDepth"
+            android:text="End Depth"
+            android:textSize="50sp" />
+
+        <EditText
+            android:id="@+id/end_depth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/set_pass_depth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="Depth Per Pass"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/pass_depth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:text="0.5"
+                android:textSize="50sp" />
+
+            <ToggleButton
+                android:id="@+id/pass_unit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textOff="mm"
+                android:textOn="inch"
+                android:textSize="50sp" />
+        </LinearLayout>
+
+        <ToggleButton
+            android:id="@+id/play_pause"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textOff="Halt!"
+            android:textOn="Reset"
+            android:textSize="50sp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/surface_dro_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+</LinearLayout>
