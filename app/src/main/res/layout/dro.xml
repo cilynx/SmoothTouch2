@@ -13,11 +13,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/jog_z_up"
+            android:id="@+id/jog_zp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:onClick="jogZP"
             android:text="&#8593;"
             android:textSize="65sp" />
 
@@ -43,7 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:onClick="homeZ"
             android:text="&#x2302;Z"
             android:textSize="65sp" />
 
@@ -65,11 +63,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/jog_z_down"
+            android:id="@+id/jog_zn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:onClick="jogZN"
             android:text="&#8595;"
             android:textSize="65sp" />
 
@@ -122,17 +119,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="homeX"
             android:text="&#x2302;X"
-            android:textSize="65sp" />
+            android:textSize="65sp"/>
 
         <Button
-            android:id="@+id/jog_up"
+            android:id="@+id/jog_yp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:onClick="jogYP"
             android:text="&#8593;"
             android:textSize="65sp" />
 
@@ -141,7 +136,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="homeY"
             android:text="&#x2302;Y"
             android:textSize="65sp" />
 
@@ -154,11 +148,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/jog_left"
+            android:id="@+id/jog_xn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="jogXN"
             android:text="&#8592;"
             android:textSize="65sp" />
 
@@ -171,11 +164,10 @@
             android:textSize="25sp" />
 
         <Button
-            android:id="@+id/jog_right"
+            android:id="@+id/jog_xp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="jogXP"
             android:text="&#8594;"
             android:textSize="65sp" />
 
@@ -192,16 +184,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="home"
             android:text="&#x2302;"
             android:textSize="65sp" />
 
         <Button
-            android:id="@+id/jog_down"
+            android:id="@+id/jog_yn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="jogYN"
             android:text="&#8595;"
             android:textSize="65sp" />
 

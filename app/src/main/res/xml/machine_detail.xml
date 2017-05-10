@@ -16,6 +16,24 @@
         android:title="Hostname / IP Address"
         android:dialogTitle="Hostname / IP Address" />
 
+    <EditTextPreference
+        android:key="x_velocity"
+        android:title="Max X Velocity (mm/min)"
+        android:dialogTitle="Max X Velocity (mm/min)"
+        android:inputType="numberDecimal" />
+
+    <EditTextPreference
+        android:key="y_velocity"
+        android:title="Max Y Velocity (mm/min)"
+        android:dialogTitle="Max Y Velocity (mm/min)"
+        android:inputType="numberDecimal" />
+
+    <EditTextPreference
+        android:key="z_velocity"
+        android:title="Max Z Velocity (mm/min)"
+        android:dialogTitle="Max Z Velocity (mm/min)"
+        android:inputType="numberDecimal" />
+
     <CheckBoxPreference
         android:key="connect"
         android:title="Connect"

@@ -1,6 +1,5 @@
 package com.wolfteck.smoothtouch2;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,8 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static String mCurrentMachine = new String();
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide

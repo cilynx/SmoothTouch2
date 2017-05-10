@@ -30,7 +30,9 @@ public class MachineDetail extends PreferenceFragmentCompat implements SharedPre
 
         onSharedPreferenceChanged(sharedPref, "machine_type");
         onSharedPreferenceChanged(sharedPref, "hostname");
-
+        onSharedPreferenceChanged(sharedPref, "x_velocity");
+        onSharedPreferenceChanged(sharedPref, "y_velocity");
+        onSharedPreferenceChanged(sharedPref, "z_velocity");
     }
 
     @Override
@@ -53,7 +55,6 @@ public class MachineDetail extends PreferenceFragmentCompat implements SharedPre
             Interface mInterface = Interface.getInstance(getContext());
         } else {
             preference.setSummary(sharedPreferences.getString(key, ""));
-
         }
     }
 

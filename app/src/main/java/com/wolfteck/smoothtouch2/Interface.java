@@ -32,6 +32,7 @@ public class Interface {
     private static String mUploadURL;
     private static StringRequest mRequestDRO;
     private static StringRequest mRequest;
+    private static TextView[] mDroViews;
 
     private static double mMachineX = 0;
     private static double mMachineY = 0;
@@ -48,21 +49,21 @@ public class Interface {
     private static ProgressDialog mProgressDialog;
 
     private Interface(Context context) {
-        mCtx = context.getApplicationContext();
+        mCtx = context;
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         String currentMachine = prefs.getString("currentMachine", "Mill");
-        prefs = mCtx.getSharedPreferences(currentMachine, Context.MODE_PRIVATE);
+        prefs = context.getSharedPreferences(currentMachine, Context.MODE_PRIVATE);
 
         mCommandURL = "http://" + prefs.getString("hostname", "smoothie") + "/command";
         mUploadURL = "http://" + prefs.getString("hostname", "smoothie") + "/upload";
 
-        Toast.makeText(mCtx, mCommandURL, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, mCommandURL, Toast.LENGTH_LONG).show();
 
         mRequestQueue = getRequestQueue();
     }
 
-    public static Interface getInstance(Context context) {
+    public static synchronized Interface getInstance(Context context) {
         if(mInstance == null) {
             mInstance = new Interface(context);
         }
@@ -71,7 +72,7 @@ public class Interface {
 
     public RequestQueue getRequestQueue() {
         if(mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(mCtx);
+            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
         }
         return mRequestQueue;
     }
@@ -80,7 +81,9 @@ public class Interface {
         getRequestQueue().add(req);
     }
 
-    public void watchDRO(final TextView[] droViews) {
+    public void startDRO(final TextView[] droViews) {
+        mDroViews = droViews;
+
         mRequestDRO = new StringRequest(Request.Method.POST, mCommandURL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -90,9 +93,9 @@ public class Interface {
                 mMachineY = Double.valueOf(parts[3].split(":")[1]);
                 mMachineZ = Double.valueOf(parts[4].split(":")[1]);
 
-                droViews[0].setText(Double.toString(getDRO()[0]));
-                droViews[1].setText(Double.toString(getDRO()[1]));
-                droViews[2].setText(Double.toString(getDRO()[2]));
+                mDroViews[0].setText(Double.toString(getDRO()[0]));
+                mDroViews[1].setText(Double.toString(getDRO()[1]));
+                mDroViews[2].setText(Double.toString(getDRO()[2]));
 
                 if(mRunDRO) { addToRequestQueue(mRequestDRO); }
             }
@@ -111,13 +114,12 @@ public class Interface {
             }
         };
 
-        startDRO();
-    }
-
-    public void startDRO() {
         if(!mRunDRO) {
             mRunDRO = true;
             addToRequestQueue(mRequestDRO);
+            Toast.makeText(mCtx, "DRO was off.  Starting.", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(mCtx, "DRO is already on.  Redirecting.", Toast.LENGTH_SHORT).show();
         }
     }
 
