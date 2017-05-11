@@ -21,7 +21,6 @@
             android:id="@+id/set_upper_left"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="setUpperLeft"
             android:text="Upper Left"
             android:textSize="50sp" />
 
@@ -50,7 +49,6 @@
             android:id="@+id/set_lower_right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="setLowerRight"
             android:text="Lower Right"
             android:textSize="50sp" />
 
@@ -127,7 +125,6 @@
             android:id="@+id/set_start_depth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="setStartDepth"
             android:text="Start Depth"
             android:textSize="50sp" />
 
@@ -142,7 +139,6 @@
             android:id="@+id/set_end_depth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="setEndDepth"
             android:text="End Depth"
             android:textSize="50sp" />
 
@@ -185,7 +181,7 @@
         </LinearLayout>
 
         <ToggleButton
-            android:id="@+id/play_pause"
+            android:id="@+id/halt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
