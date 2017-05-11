@@ -1,13 +1,16 @@
 package com.wolfteck.smoothtouch2;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class Surface extends Fragment {
@@ -93,8 +96,8 @@ public class Surface extends Fragment {
             }
         });
 
-        ToggleButton tool = (ToggleButton) view.findViewById(R.id.tool_unit);
-        tool.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        final ToggleButton toolUnit = (ToggleButton) view.findViewById(R.id.tool_unit);
+        toolUnit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 TextView tv = (TextView) view.findViewById(R.id.tool_diameter);
@@ -111,8 +114,8 @@ public class Surface extends Fragment {
             }
         });
 
-        ToggleButton pass = (ToggleButton) view.findViewById(R.id.pass_unit);
-        pass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        ToggleButton passUnit = (ToggleButton) view.findViewById(R.id.pass_unit);
+        passUnit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 TextView tv = (TextView) view.findViewById(R.id.pass_depth);
@@ -125,6 +128,106 @@ public class Surface extends Fragment {
                     } else {
                         tv.setText(String.format("%.4f", value * 25.4));
                     }
+                }
+            }
+        });
+
+        Button surfaceThePart = (Button) view.findViewById(R.id.surface_the_part);
+        surfaceThePart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tv;
+
+                tv = (TextView) view.findViewById(R.id.upper_left_x);
+                double ulx = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.upper_left_y);
+                double uly = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.lower_right_x);
+                double lrx = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.lower_right_y);
+                double lry = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.start_depth);
+                double sd = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.end_depth);
+                double ed = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.tool_diameter);
+                double td = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.pass_depth);
+                double dpp = Double.parseDouble(tv.getText().toString());
+
+                StringBuilder message = new StringBuilder();
+
+                if(!(ed < sd)) {
+                    message.append("End Depth must be deeper than Start Depth.\n");
+                }
+
+                if(!(ulx < lrx)) {
+                    message.append("Upper Left must be to the left of Lower Right.\n");
+                }
+
+                if(!(uly > lry)) {
+                    message.append("Upper Left must be higher than Lower Right.\n");
+                }
+
+                if(message.toString().isEmpty()) {
+
+                    if(toolUnit.isChecked()) { td *= 25.4; }
+                    double shift = (uly-lry)/(Math.ceil(((uly-lry)-td)/td)+1);
+                    double y;
+                    double z = sd;
+                    int count;
+
+                    final StringBuilder gcode = new StringBuilder();
+                    gcode.append("G90 G21\nM17\n");
+                    gcode.append("G0 Z").append(sd+10).append("\n");
+                    gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("\n");
+                    gcode.append("M3\n");
+
+                    while(z >= ed) {
+                        gcode.append("G1 Z").append(z).append("\n");
+                        count = 0;
+                        y = uly;
+                        while (y >= lry) {
+                            gcode.append("G1 Y").append(y).append("\n");
+                            gcode.append("G1 X");
+                            if (count % 2 == 0) {
+                                gcode.append(lrx);
+                            } else {
+                                gcode.append(ulx);
+                            }
+                            gcode.append("\n");
+                            y -= shift;
+                            count++;
+                        }
+                        if(z == ed) { break; }
+                        z -= dpp;
+                        if(z < ed) { z = ed; }
+                        gcode.append("G0 Z").append(sd).append("\n");
+                        gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("\n");
+                    }
+
+                    gcode.append("M5\n");
+                    gcode.append("G0 Z").append(sd).append("\n");
+                    gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("\n");
+                    gcode.append("M18\n");
+
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Send to machine?")
+                            .setMessage(gcode)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    Toast.makeText(getActivity(), Long.toString(System.currentTimeMillis()), Toast.LENGTH_LONG).show();
+                                    mSmoothie.playGcode(gcode.toString());
+                                }})
+                            .setNegativeButton(android.R.string.no, null).show();
+                } else {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Invalid Parameters!")
+                            .setMessage(message.toString())
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton(android.R.string.ok, null)
+                            .show();
                 }
             }
         });

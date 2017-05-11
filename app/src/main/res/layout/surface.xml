@@ -109,7 +109,6 @@
             android:id="@+id/surface_the_part"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="surfaceThePart"
             android:text="GO!"
             android:textSize="50sp" />
 

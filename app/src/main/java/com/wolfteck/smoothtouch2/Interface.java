@@ -182,16 +182,16 @@ public class Interface {
         sendCommand("M23 " + filename);
     }
 
-    public void playGcode(final String gcode, Context activityContext) {
+    public void playGcode(final String gcode) {
         mSendPlayDelete = Long.toString(System.currentTimeMillis()) + ".g";
-        sendFile(gcode, mSendPlayDelete, activityContext);
+        sendFile(gcode, mSendPlayDelete);
     }
 
-    public void playFile(final String filename, Context activityContext) {
+    public void playFile(final String filename) {
         Toast.makeText(mCtx, "Playing " + filename, Toast.LENGTH_SHORT).show();
         mIsPlaying = true;
 
-        mProgressDialog = new ProgressDialog(activityContext);
+        mProgressDialog = new ProgressDialog(mCtx);
         mProgressDialog.setMessage("Transferring File...");
         mProgressDialog.setTitle("Playing G-Code");
         mProgressDialog.setIndeterminate(false);
@@ -207,9 +207,9 @@ public class Interface {
         sendCommand("M30 " + filename);
     }
 
-    public void sendFile(final String gcode, final String filename, final Context activityContext) {
+    public void sendFile(final String gcode, final String filename) {
 
-        mProgressDialog = new ProgressDialog(activityContext);
+        mProgressDialog = new ProgressDialog(mCtx);
         mProgressDialog.setMessage("Transferring File...");
         mProgressDialog.setTitle("Playing G-Code");
         mProgressDialog.show();
@@ -221,7 +221,7 @@ public class Interface {
             public void onResponse(String response) {
                 Toast.makeText(mCtx, response, Toast.LENGTH_SHORT).show();
                 mProgressDialog.dismiss();
-                if(mSendPlayDelete.equals(filename)) { playFile(mSendPlayDelete, activityContext); }
+                if(mSendPlayDelete.equals(filename)) { playFile(mSendPlayDelete); }
             }
         }, new Response.ErrorListener() {
             @Override
