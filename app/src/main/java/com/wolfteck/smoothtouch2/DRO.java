@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class DRO extends Fragment {
 
@@ -106,7 +108,25 @@ public class DRO extends Fragment {
             }
         });
 
+        final ToggleButton relative = (ToggleButton) view.findViewById(R.id.relative_toggle);
+        relative.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mSmoothie.setWorkspaceDRO();
+                } else {
+                    mSmoothie.setMachineDRO();
+                }
+            }
+        });
 
+        Button zero = (Button) view.findViewById(R.id.zero);
+        zero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSmoothie.zeroWorkspaceDRO();
+                relative.setChecked(true);
+            }
+        });
 
         return view;
     }
