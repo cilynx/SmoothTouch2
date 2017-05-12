@@ -176,22 +176,23 @@ public class Surface extends Fragment {
                     int count;
 
                     final StringBuilder gcode = new StringBuilder();
-                    gcode.append("G90 G21\nM17\n");
-                    gcode.append("G0 Z").append(sd+10).append("\n");
-                    gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("\n");
-                    gcode.append("M3\n");
+                    gcode.append("G90; Absolute mode\nG21; Millimeter mode\nM17; Enable steppers\n");
+                    gcode.append("G0 Z").append(sd+10).append("; Go to safe depth\n");
+                    gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("; Go to upper left\n");
+                    gcode.append("M3; Turn spindle on\n");
 
+                    int pass = 1;
                     while(z >= ed) {
-                        gcode.append("G1 Z").append(z).append("\n");
+                        gcode.append("G1 Z").append(z).append("; Pass ").append(pass++).append("\n");
                         count = 0;
                         y = uly;
                         while (y >= lry) {
-                            gcode.append("G1 Y").append(y).append("\n");
+                            gcode.append("G1 Y").append(y).append("; Shift\n");
                             gcode.append("G1 X");
                             if (count % 2 == 0) {
-                                gcode.append(lrx);
+                                gcode.append(lrx).append("; Zig");
                             } else {
-                                gcode.append(ulx);
+                                gcode.append(ulx).append("; Zag");
                             }
                             gcode.append("\n");
                             y -= shift;
@@ -200,14 +201,14 @@ public class Surface extends Fragment {
                         if(z == ed) { break; }
                         z -= dpp;
                         if(z < ed) { z = ed; }
-                        gcode.append("G0 Z").append(sd).append("\n");
-                        gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("\n");
+                        gcode.append("G0 Z").append(sd).append("; Go to safe depth\n");
+                        gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("; Go to upper left\n");
                     }
 
-                    gcode.append("M5\n");
-                    gcode.append("G0 Z").append(sd).append("\n");
-                    gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("\n");
-                    gcode.append("M18\n");
+                    gcode.append("G0 Z").append(sd).append("; Go to safe depth\n");
+                    gcode.append("M5; Turn spindle off\n");
+                    gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("; Go to upper left\n");
+                    gcode.append("M18; Disable steppers\n");
 
                     mSmoothie.playGcode(gcode.toString());
 
