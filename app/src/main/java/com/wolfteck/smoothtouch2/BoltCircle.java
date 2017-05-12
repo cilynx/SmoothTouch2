@@ -114,21 +114,23 @@ public class BoltCircle extends Fragment {
 
                     final StringBuilder gcode = new StringBuilder();
 
-                    gcode.append("G90 G21\nM17\n"); // Absolute mode, Millimeter mode, Enable Steppers
-                    gcode.append("G0 Z").append(safeDepth).append("\n"); // Go to safe depth
-                    gcode.append("M3\n"); // Start the spindle
+                    gcode.append("G90; Absolute mode\nG21; Millimeter mode\nM17; Enable steppers\n");
+                    gcode.append("G0 Z").append(safeDepth).append("; Go to safe depth\n");
+                    gcode.append("M3; Start the spindle\n");
 
+                    int count = 1;
                     while(theta - 360 < firstAngle) {
-                        gcode.append("G0 X").append(centerX + (radius * Math.cos(Math.toRadians(theta)))).append(" Y").append(centerY + (radius * Math.sin(Math.toRadians(theta)))).append("\n"); // Move to hole
-                        gcode.append("G1 Z").append(holeDepth).append("\n"); // Drill
-                        gcode.append("G1 Z").append(safeDepth).append("\n"); // Retract
+                        gcode.append("G0 X").append(centerX + (radius * Math.cos(Math.toRadians(theta))));
+                        gcode.append(" Y").append(centerY + (radius * Math.sin(Math.toRadians(theta))));
+                        gcode.append("; Hole ").append(count++).append("\n");
+                        gcode.append("G1 Z").append(holeDepth).append("; Drill\n");
+                        gcode.append("G1 Z").append(safeDepth).append("; Retract\n");
                         theta += delta_theta;
                     }
 
-                    gcode.append("M5\n"); // Stop the spindle
-                    gcode.append("G0 Z").append(safeDepth).append("\n"); // Go to safe depth
-                    gcode.append("G0 X").append(centerX).append(" Y").append(centerY).append("\n"); // Go to the center
-                    gcode.append("M18\n"); // Disable Steppers
+                    gcode.append("M5; Stop the spindle\n");
+                    gcode.append("G0 X").append(centerX).append(" Y").append(centerY).append("; Go to center\n");
+                    gcode.append("M18; Disable steppers\n");
 
                     mSmoothie.playGcode(gcode.toString());
 
