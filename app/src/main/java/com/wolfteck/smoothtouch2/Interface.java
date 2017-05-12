@@ -2,7 +2,9 @@ package com.wolfteck.smoothtouch2;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.TextView;
@@ -183,8 +185,17 @@ public class Interface {
     }
 
     public void playGcode(final String gcode) {
-        mSendPlayDelete = Long.toString(System.currentTimeMillis()) + ".g";
-        sendFile(gcode, mSendPlayDelete);
+        new AlertDialog.Builder(mCtx)
+                .setTitle("Send to machine?")
+                .setMessage(gcode)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(mCtx, Long.toString(System.currentTimeMillis()), Toast.LENGTH_LONG).show();
+                        mSendPlayDelete = Long.toString(System.currentTimeMillis()) + ".g";
+                        sendFile(gcode, mSendPlayDelete);
+                    }})
+                .setNegativeButton(android.R.string.no, null).show();
     }
 
     public void playFile(final String filename) {

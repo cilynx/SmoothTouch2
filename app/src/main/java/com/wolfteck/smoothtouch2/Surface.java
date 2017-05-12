@@ -211,16 +211,8 @@ public class Surface extends Fragment {
                     gcode.append("G0 X").append(ulx).append(" Y").append(uly).append("\n");
                     gcode.append("M18\n");
 
-                    new AlertDialog.Builder(getActivity())
-                            .setTitle("Send to machine?")
-                            .setMessage(gcode)
-                            .setIcon(android.R.drawable.ic_dialog_alert)
-                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    Toast.makeText(getActivity(), Long.toString(System.currentTimeMillis()), Toast.LENGTH_LONG).show();
-                                    mSmoothie.playGcode(gcode.toString());
-                                }})
-                            .setNegativeButton(android.R.string.no, null).show();
+                    mSmoothie.playGcode(gcode.toString());
+
                 } else {
                     new AlertDialog.Builder(getActivity())
                             .setTitle("Invalid Parameters!")
