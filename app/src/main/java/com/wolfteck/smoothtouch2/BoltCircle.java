@@ -56,11 +56,11 @@ public class BoltCircle extends Fragment {
             }
         });
 
-        Button setSurfaceDepth = (Button) view.findViewById(R.id.set_bc_surface);
+        Button setSurfaceDepth = (Button) view.findViewById(R.id.set_bc_safe);
         setSurfaceDepth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView surfaceDepth = (TextView) view.findViewById(R.id.bc_surface);
+                TextView surfaceDepth = (TextView) view.findViewById(R.id.bc_safe);
                 surfaceDepth.setText(Double.toString(mSmoothie.getMachineDRO()[2]));
             }
         });
@@ -75,8 +75,8 @@ public class BoltCircle extends Fragment {
                 TextView center_y = (TextView) view.findViewById(R.id.bc_center_y);
                 center_y.setText(Double.toString(mSmoothie.getMachineDRO()[1]));
 
-                TextView surfaceDepth = (TextView) view.findViewById(R.id.bc_surface);
-                surfaceDepth.setText(Double.toString(mSmoothie.getMachineDRO()[2]));
+                TextView safeDepth = (TextView) view.findViewById(R.id.bc_safe);
+                safeDepth.setText(Double.toString(mSmoothie.getMachineDRO()[2] + 2));
             }
         });
 
@@ -86,12 +86,14 @@ public class BoltCircle extends Fragment {
             public void onClick(View v) {
                 TextView tv;
 
-                tv = (TextView) view.findViewById(R.id.bc_surface);
-                double surfaceDepth = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.bc_safe);
+                double safeDepth = Double.parseDouble(tv.getText().toString());
                 tv = (TextView) view.findViewById(R.id.bc_depth);
                 double holeDepth = Double.parseDouble(tv.getText().toString());
                 tv = (TextView) view.findViewById(R.id.bc_A);
                 double firstAngle = Double.parseDouble(tv.getText().toString());
+                tv = (TextView) view.findViewById(R.id.bc_L);
+                double arcLength = Double.parseDouble(tv.getText().toString());
                 tv = (TextView) view.findViewById(R.id.bc_N);
                 double holeCount = Double.parseDouble(tv.getText().toString());
                 tv = (TextView) view.findViewById(R.id.bc_D);
@@ -103,8 +105,8 @@ public class BoltCircle extends Fragment {
 
                 StringBuilder message = new StringBuilder();
 
-                if(surfaceDepth <= holeDepth) {
-                    message.append("Hole Depth must be deeper than Surface Depth.\n");
+                if(safeDepth <= holeDepth) {
+                    message.append("Hole Depth must be deeper than Safe Depth.\n");
                 }
 
                 if(holeCount < 1) {
@@ -119,11 +121,16 @@ public class BoltCircle extends Fragment {
                     message.append("First Angle must be between 0 and 360 inclusive.");
                 }
 
+                if(0 > arcLength || arcLength > 360) {
+                    message.append("Arc Length must be between 0 and 360 inclusive.");
+                }
+
                 if(message.toString().isEmpty()) {
-                    double safeDepth = surfaceDepth + 2;
                     double radius = diameter / 2;
                     double theta = firstAngle;
-                    double delta_theta = 360 / holeCount;
+
+                    if(arcLength == 360) { arcLength = arcLength - (360 / holeCount); }
+                    double delta_theta = arcLength / (holeCount - 1);
 
                     final StringBuilder gcode = new StringBuilder();
 
@@ -132,7 +139,7 @@ public class BoltCircle extends Fragment {
                     gcode.append("M3; Start the spindle\n");
 
                     int count = 1;
-                    while(theta - 360 < firstAngle) {
+                    while(count <= holeCount) {
                         gcode.append("G0 X").append(centerX + (radius * Math.cos(Math.toRadians(theta))));
                         gcode.append(" Y").append(centerY + (radius * Math.sin(Math.toRadians(theta))));
                         gcode.append("; Hole ").append(count++).append("\n");
