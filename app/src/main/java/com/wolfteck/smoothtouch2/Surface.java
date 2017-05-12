@@ -187,7 +187,7 @@ public class Surface extends Fragment {
                         count = 0;
                         y = uly;
                         while (y >= lry) {
-                            gcode.append("G1 Y").append(y).append("; Shift\n");
+                            gcode.append("G1 Y").append(y).append("; Row ").append(count + 1).append("\n");
                             gcode.append("G1 X");
                             if (count % 2 == 0) {
                                 gcode.append(lrx).append("; Zig");

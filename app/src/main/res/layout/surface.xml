@@ -46,33 +46,18 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/set_lower_right"
+            android:id="@+id/set_end_depth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lower Right"
+            android:text="End Depth"
             android:textSize="50sp" />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/end_depth"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/lower_right_x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="numberDecimal"
-                android:textSize="50sp" />
-
-            <EditText
-                android:id="@+id/lower_right_y"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="numberDecimal"
-                android:textSize="50sp" />
-        </LinearLayout>
-
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="50sp" />
 
         <TextView
             android:id="@+id/set_tool_diameter"
@@ -135,18 +120,32 @@
             android:textSize="50sp" />
 
         <Button
-            android:id="@+id/set_end_depth"
+            android:id="@+id/set_lower_right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="End Depth"
+            android:text="Lower Right"
             android:textSize="50sp" />
 
-        <EditText
-            android:id="@+id/end_depth"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:textSize="50sp" />
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/lower_right_x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:textSize="50sp" />
+
+            <EditText
+                android:id="@+id/lower_right_y"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:textSize="50sp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/set_pass_depth"
