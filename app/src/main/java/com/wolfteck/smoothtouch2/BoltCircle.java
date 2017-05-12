@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class BoltCircle extends Fragment {
 
@@ -33,6 +35,17 @@ public class BoltCircle extends Fragment {
         getFragmentManager().beginTransaction().replace(R.id.bolt_circle_dro_container, new DRO()).commit();
 
         final Interface mSmoothie = Interface.getInstance(getActivity());
+
+        ToggleButton halt = (ToggleButton) view.findViewById(R.id.halt);
+        halt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mSmoothie.halt();
+                } else {
+                    mSmoothie.reset();
+                }
+            }
+        });
 
         Button setHoleDepth = (Button) view.findViewById(R.id.set_bc_depth);
         setHoleDepth.setOnClickListener(new View.OnClickListener() {
