@@ -19,6 +19,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -305,6 +307,68 @@ public class Interface {
                 // Should we retry forever or...?  Maybe a user preference?
                 Toast.makeText(mCtx, error.getClass().getSimpleName(), Toast.LENGTH_LONG).show();
                 if(command.equals("M27")) { sendCommand("M27"); }
+            }
+        })
+        {
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                Log.d("getBody",command);
+                return(command.concat("\n").getBytes());
+            }
+        };
+
+        mRequest.setRetryPolicy(new DefaultRetryPolicy(
+                60000,  // 60 second timeout
+                0,      // Don't retry.  DefaultRetryPolicy.DEFAULT_MAX_RETRIES == 1
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT // 1f
+        ));
+
+        addToRequestQueue(mRequest);
+    }
+
+    public interface VolleyArrayCallback {
+        void onSuccess(ArrayList<String> result);
+    }
+
+    public interface VolleyStringCallback {
+        void onSuccess(String result);
+    }
+
+    public void listFiles(final VolleyArrayCallback callback) {
+        mProgressDialog = new ProgressDialog(mCtx);
+        mProgressDialog.setMessage("Getting File List...");
+        mProgressDialog.setTitle("List Files");
+        mProgressDialog.setIndeterminate(true);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.show();
+
+        sendCommand("M20", new Interface.VolleyStringCallback() {
+            @Override
+            public void onSuccess(String result) {
+                ArrayList<String> files = new ArrayList<String>();
+                for (String line : result.split("\n")) {
+                    if (line.contains(".g") || line.contains(".ngc")) {
+                        files.add(line);
+                    }
+                }
+                Collections.sort(files);
+                mProgressDialog.dismiss();
+                callback.onSuccess(files);
+            }
+        });
+    }
+
+    public void sendCommand(final String command, final VolleyStringCallback callback) {
+
+        mRequest = new StringRequest(Request.Method.POST, mCommandURL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                callback.onSuccess(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(mCtx, error.getClass().getSimpleName(), Toast.LENGTH_LONG).show();
             }
         })
         {

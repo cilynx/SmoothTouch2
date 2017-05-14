@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusableInTouchMode="true">
+    android:baselineAligned="false">
 
     <ListView
         android:layout_width="match_parent"
@@ -26,19 +26,17 @@
             android:layout_weight="4"
             android:text="Play"
             android:textSize="30sp"
-            android:id="@+id/play"
+            android:id="@+id/playFile"
             android:layout_gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:onClick="playFile"/>
+            android:layout_width="match_parent"/>
         <Button
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:text="Delete"
             android:textSize="30sp"
-            android:id="@+id/delete"
+            android:id="@+id/deleteFile"
             android:layout_gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:onClick="deleteFile"/>
+            android:layout_width="match_parent"/>
     </LinearLayout>
 
 </LinearLayout>
