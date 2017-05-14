@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter.addFragment(new Surface(), "Surface");
         mSectionsPagerAdapter.addFragment(new BoltCircle(), "Bolt Circle");
         mSectionsPagerAdapter.addFragment(new Grid(), "Grid");
-        mSectionsPagerAdapter.addFragment(new Arc(), "Arc");
         mSectionsPagerAdapter.addFragment(new DepthMap(), "Depth Map");
         mSectionsPagerAdapter.addFragment(new PlayGcode(), "Play Gcode");
         mSectionsPagerAdapter.addFragment(new Machines(), "Machines");
