@@ -26,7 +26,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="0.0000"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="65sp" />
     </LinearLayout>
@@ -51,7 +50,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="0.0000"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="65sp" />
     </LinearLayout>
@@ -76,7 +74,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="0.0000"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="65sp" />
     </LinearLayout>

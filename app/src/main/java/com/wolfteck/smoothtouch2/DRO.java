@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class DRO extends Fragment {
@@ -21,15 +20,6 @@ public class DRO extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        Interface.getInstance(getActivity()).startDRO(new TextView[] {
-                (TextView) getActivity().findViewById(R.id.dro_x),
-                (TextView) getActivity().findViewById(R.id.dro_y),
-                (TextView) getActivity().findViewById(R.id.dro_z)
-        });
     }
 
     @Override
