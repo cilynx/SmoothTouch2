@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/gcode_file_list" />
+        android:id="@+id/gcode_file_list"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:ems="10"
+            android:textSize="50dp"
+            android:text="\n\n\n\nLoading file list..."
             android:id="@+id/edit_gcode" />
         <Button
             android:layout_height="match_parent"

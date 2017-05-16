@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -43,6 +44,8 @@ public class PlayGcode extends Fragment {
         mSmoothie.listFiles(new Interface.VolleyArrayCallback() {
             @Override
             public void onSuccess(ArrayList<String> files) {
+                TextView editGcode = (TextView) getView().findViewById(R.id.edit_gcode);
+                editGcode.setText("");
                 final ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item, files.toArray(new String[files.size()]));
                 ListView listView = (ListView) getView().findViewById(R.id.gcode_file_list);
                 listView.setAdapter(adapter);

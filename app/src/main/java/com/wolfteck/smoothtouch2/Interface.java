@@ -335,12 +335,6 @@ public class Interface {
     }
 
     public void listFiles(final VolleyArrayCallback callback) {
-        mProgressDialog = new ProgressDialog(mCtx);
-        mProgressDialog.setMessage("Getting File List...");
-        mProgressDialog.setTitle("List Files");
-        mProgressDialog.setIndeterminate(true);
-        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        mProgressDialog.show();
 
         sendCommand("M20", new Interface.VolleyStringCallback() {
             @Override
@@ -352,7 +346,6 @@ public class Interface {
                     }
                 }
                 Collections.sort(files);
-                mProgressDialog.dismiss();
                 callback.onSuccess(files);
             }
         });
