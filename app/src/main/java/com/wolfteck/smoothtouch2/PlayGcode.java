@@ -35,7 +35,6 @@ public class PlayGcode extends Fragment {
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getFragmentManager().beginTransaction().replace(R.id.surface_dro_container, new DRO()).commit();
 
         final Interface mSmoothie = Interface.getInstance(getActivity());
 
