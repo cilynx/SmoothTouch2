@@ -106,6 +106,7 @@ public class Interface {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if(mRunDRO) { addToRequestQueue(mRequestDRO); }
                 //SystemClock.sleep(5000);
             }
         })
