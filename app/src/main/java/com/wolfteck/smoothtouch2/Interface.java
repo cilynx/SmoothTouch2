@@ -220,6 +220,16 @@ public class Interface {
         sendCommand("M30 " + filename);
     }
 
+    public void loadFile(final String filename, final TextView tv) {
+        sendCommand("cat /sd/" + filename + " 100", new Interface.VolleyStringCallback() {
+            @Override
+            public void onSuccess(String result) {
+                tv.setTextSize(20);
+                tv.setText(result);
+            }
+        });
+    }
+
     public void sendFile(final String gcode, final String filename) {
 
         mProgressDialog = new ProgressDialog(mCtx);

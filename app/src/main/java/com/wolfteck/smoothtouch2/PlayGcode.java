@@ -44,7 +44,7 @@ public class PlayGcode extends Fragment {
         mSmoothie.listFiles(new Interface.VolleyArrayCallback() {
             @Override
             public void onSuccess(ArrayList<String> files) {
-                TextView editGcode = (TextView) getView().findViewById(R.id.edit_gcode);
+                final TextView editGcode = (TextView) getView().findViewById(R.id.edit_gcode);
                 editGcode.setText("");
                 final ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item, files.toArray(new String[files.size()]));
                 ListView listView = (ListView) getView().findViewById(R.id.gcode_file_list);
@@ -53,6 +53,9 @@ public class PlayGcode extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         mFilename = (String) adapter.getItem(i);
+                        editGcode.setTextSize(50);
+                        editGcode.setText("Loading " + mFilename + " preview (up to 100 lines) ...");
+                        mSmoothie.loadFile(mFilename, editGcode);
                         mSmoothie.selectFile(mFilename);
                     }
                 });

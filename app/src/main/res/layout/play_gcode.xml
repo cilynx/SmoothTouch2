@@ -15,13 +15,18 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
+        <ScrollView
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="50dp"
-            android:text="\n\n\n\nLoading file list..."
-            android:id="@+id/edit_gcode" />
+            android:scrollbars="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="50dp"
+                android:text="\n\n\n\nLoading file list..."
+                android:id="@+id/edit_gcode" />
+        </ScrollView>
         <Button
             android:layout_height="match_parent"
             android:layout_weight="4"
