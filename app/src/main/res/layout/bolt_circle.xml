@@ -60,7 +60,7 @@
                 android:id="@+id/bc_D_l"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Diameter (D)"
+                android:text="Circle Diameter (D)"
                 android:textSize="35sp" />
 
             <EditText
@@ -99,6 +99,21 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="360"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/bc_H_l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hole Diameter (H)"
+                android:textSize="35sp" />
+
+            <EditText
+                android:id="@+id/bc_H"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="10"
                 android:textSize="35sp" />
 
         </LinearLayout>
@@ -175,12 +190,10 @@
                     android:textSize="35sp" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/bolt_circle_diagram"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/bolt_circle_diagram"/>
+           <com.wolfteck.smoothtouch2.BoltCircleDiagram
+               android:layout_height="wrap_content"
+               android:layout_width="match_parent"
+               android:id="@+id/bcDiagram" />
 
         </LinearLayout>
 

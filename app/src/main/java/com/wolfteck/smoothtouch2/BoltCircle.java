@@ -3,6 +3,8 @@ package com.wolfteck.smoothtouch2;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,115 @@ public class BoltCircle extends Fragment {
         getFragmentManager().beginTransaction().replace(R.id.bolt_circle_dro_container, new DRO()).commit();
 
         final Interface mSmoothie = Interface.getInstance(getActivity());
+
+        final BoltCircleDiagram diagram = (BoltCircleDiagram) view.findViewById(R.id.bcDiagram);
+
+        final TextView numberOfHoles = (TextView) view.findViewById(R.id.bc_N);
+        final TextView circleDiameter = (TextView) view.findViewById(R.id.bc_D);
+        final TextView firstAngle = (TextView) view.findViewById(R.id.bc_A);
+        final TextView arcLength = (TextView) view.findViewById(R.id.bc_L);
+        final TextView holeDiameter = (TextView) view.findViewById(R.id.bc_H);
+
+        diagram.setNumberOfHoles(Integer.parseInt(numberOfHoles.getText().toString()));
+        diagram.setCircleDiameter(Float.parseFloat(circleDiameter.getText().toString()));
+        diagram.setFirstAngle(Float.parseFloat(firstAngle.getText().toString()));
+        diagram.setArcLength(Float.parseFloat(arcLength.getText().toString()));
+        diagram.setHoleDiameter(Float.parseFloat(holeDiameter.getText().toString()));
+
+        numberOfHoles.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!numberOfHoles.getText().toString().equals("")) {
+                    diagram.setNumberOfHoles(Integer.parseInt(numberOfHoles.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        circleDiameter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!circleDiameter.getText().toString().equals("")) {
+                    diagram.setCircleDiameter(Float.parseFloat(circleDiameter.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        firstAngle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!firstAngle.getText().toString().equals("")) {
+                    diagram.setFirstAngle(Float.parseFloat(firstAngle.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        arcLength.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!arcLength.getText().toString().equals("")) {
+                    diagram.setArcLength(Float.parseFloat(arcLength.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        holeDiameter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!holeDiameter.getText().toString().equals("")) {
+                    diagram.setHoleDiameter(Float.parseFloat(holeDiameter.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         ToggleButton halt = (ToggleButton) view.findViewById(R.id.halt);
         halt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
