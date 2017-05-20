@@ -154,6 +154,20 @@
                 android:text="40"
                 android:textSize="35sp" />
 
+            <TextView
+                android:id="@+id/grid_D_l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Drill Size"
+                android:textSize="35sp" />
+            <EditText
+                android:id="@+id/grid_D"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="10"
+                android:textSize="35sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -230,12 +244,10 @@
                     android:textSize="35sp" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/grid_diagram"
-                android:layout_width="match_parent"
+            <com.wolfteck.smoothtouch2.GridDiagram
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/grid_diagram"/>
+                android:layout_width="match_parent"
+                android:id="@+id/gDiagram" />
 
         </LinearLayout>
 

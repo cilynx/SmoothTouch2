@@ -3,6 +3,8 @@ package com.wolfteck.smoothtouch2;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,136 @@ public class Grid extends Fragment {
         getFragmentManager().beginTransaction().replace(R.id.grid_dro_container, new DRO()).commit();
 
         final Interface mSmoothie = Interface.getInstance(getActivity());
+
+        final GridDiagram diagram = (GridDiagram) view.findViewById(R.id.gDiagram);
+
+        final TextView rows = (TextView) view.findViewById(R.id.grid_rows);
+        final TextView cols = (TextView) view.findViewById(R.id.grid_cols);
+        final TextView dx = (TextView) view.findViewById(R.id.grid_dx);
+        final TextView dy = (TextView) view.findViewById(R.id.grid_dy);
+        final TextView angle = (TextView) view.findViewById(R.id.grid_A);
+        final TextView drill = (TextView) view.findViewById(R.id.grid_D);
+
+        diagram.setRows(Integer.parseInt(rows.getText().toString()));
+        diagram.setCols(Integer.parseInt(cols.getText().toString()));
+        diagram.setDx(Float.parseFloat(dx.getText().toString()));
+        diagram.setDy(Float.parseFloat(dy.getText().toString()));
+        diagram.setAngle(Float.parseFloat(angle.getText().toString()));
+        diagram.setDrillSize(Float.parseFloat(drill.getText().toString()));
+
+        rows.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!rows.getText().toString().equals("")) {
+                    diagram.setRows(Integer.parseInt(rows.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        cols.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!cols.getText().toString().equals("")) {
+                    diagram.setCols(Integer.parseInt(cols.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        dx.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!dx.getText().toString().equals("")) {
+                    diagram.setDx(Float.parseFloat(dx.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        dy.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!dy.getText().toString().equals("")) {
+                    diagram.setDy(Float.parseFloat(dy.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        angle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!angle.getText().toString().equals("")) {
+                    diagram.setAngle(Float.parseFloat(angle.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        drill.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(!drill.getText().toString().equals("")) {
+                    diagram.setDrillSize(Float.parseFloat(drill.getText().toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         ToggleButton halt = (ToggleButton) view.findViewById(R.id.grid_halt);
         halt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
