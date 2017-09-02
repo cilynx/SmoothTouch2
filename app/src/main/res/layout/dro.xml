@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:text="&#8593;"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/dro_x"
@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:gravity="right"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:text="&#x2302;Z"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/dro_y"
@@ -51,9 +51,8 @@
             android:layout_weight="1"
             android:gravity="right"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -66,7 +65,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:text="&#8595;"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/dro_z"
@@ -75,7 +74,7 @@
             android:layout_weight="1"
             android:gravity="right"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -91,7 +90,7 @@
             android:layout_weight="1"
             android:textOff="Abs"
             android:textOn="Rel"
-            android:textSize="30sp" />
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/zero"
@@ -99,7 +98,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Zero"
-            android:textSize="30sp" />
+            android:textSize="30dp" />
 
 
     </LinearLayout>
@@ -116,7 +115,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="&#x2302;X"
-            android:textSize="65sp"/>
+            android:textSize="40dp"/>
 
         <Button
             android:id="@+id/jog_yp"
@@ -125,7 +124,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:text="&#8593;"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
         <Button
             android:id="@+id/home_y"
@@ -133,7 +132,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="&#x2302;Y"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
     </LinearLayout>
 
@@ -149,7 +148,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="&#8592;"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
         <Button
             android:id="@+id/jog_amount"
@@ -157,7 +156,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="1mm"
-            android:textSize="25sp" />
+            android:textSize="25dp" />
 
         <Button
             android:id="@+id/jog_xp"
@@ -165,7 +164,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="&#8594;"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
     </LinearLayout>
 
@@ -181,7 +180,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="&#x2302;"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
         <Button
             android:id="@+id/jog_yn"
@@ -189,7 +188,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="&#8595;"
-            android:textSize="65sp" />
+            android:textSize="40dp" />
 
         <Button
             android:id="@+id/blank"
@@ -197,7 +196,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text=""
-            android:textSize="80sp" />
+            android:textSize="80dp" />
 
     </LinearLayout>
 

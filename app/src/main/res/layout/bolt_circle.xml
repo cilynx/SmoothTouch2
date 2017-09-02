@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Center"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -31,14 +31,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:inputType="numberDecimal"
-                    android:textSize="35sp" />
+                    android:textSize="20dp" />
                 <EditText
                     android:id="@+id/bc_center_y"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:inputType="numberDecimal"
-                    android:textSize="35sp" />
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <TextView
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Number of Holes (N)"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/bc_N"
@@ -54,14 +54,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="5"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/bc_D_l"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Circle Diameter (D)"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/bc_D"
@@ -69,14 +69,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="50"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/bc_A_l"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="First Angle (A) deg"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/bc_A"
@@ -84,14 +84,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="35"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/bc_L_l"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Arc Length (L) deg"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/bc_L"
@@ -99,14 +99,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="360"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/bc_H_l"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hole Diameter (H)"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/bc_H"
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="10"
-                android:textSize="35sp" />
+                android:textSize="20dp" />
 
         </LinearLayout>
 
@@ -139,13 +139,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Safe"
-                        android:textSize="35sp" />
+                        android:textSize="20dp" />
                     <EditText
                         android:id="@+id/bc_safe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:textSize="35sp" />
+                        android:textSize="20dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -158,13 +158,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Plunge"
-                        android:textSize="35sp" />
+                        android:textSize="20dp" />
                     <EditText
                         android:id="@+id/bc_depth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberSigned"
-                        android:textSize="35sp" />
+                        android:textSize="20dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Go!"
-                    android:textSize="35sp" />
+                    android:textSize="20dp" />
                 <ToggleButton
                     android:id="@+id/halt"
                     android:layout_width="match_parent"
@@ -187,7 +187,7 @@
                     android:layout_weight="1"
                     android:textOff="Halt!"
                     android:textOn="Reset"
-                    android:textSize="35sp" />
+                    android:textSize="20dp" />
             </LinearLayout>
 
            <com.wolfteck.smoothtouch2.BoltCircleDiagram

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Upper Left"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="numberDecimal"
-                android:textSize="50sp" />
+                android:textSize="35dp" />
 
             <EditText
                 android:id="@+id/upper_left_y"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="numberDecimal"
-                android:textSize="50sp" />
+                android:textSize="35dp" />
         </LinearLayout>
 
         <Button
@@ -46,14 +46,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="End Depth"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
         <EditText
             android:id="@+id/end_depth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
         <TextView
             android:id="@+id/set_tool_diameter"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="Tool Diameter"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                 android:layout_weight="1"
                 android:inputType="numberDecimal"
                 android:text="1"
-                android:textSize="50sp" />
+                android:textSize="35dp" />
 
             <ToggleButton
                 android:id="@+id/tool_unit"
@@ -83,7 +83,7 @@
                 android:layout_weight="1"
                 android:textOff="mm"
                 android:textOn="inch"
-                android:textSize="50sp" />
+                android:textSize="35dp" />
         </LinearLayout>
 
         <Button
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="GO!"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
     </LinearLayout>
 
@@ -106,21 +106,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start Depth"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
         <EditText
             android:id="@+id/start_depth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
         <Button
             android:id="@+id/set_lower_right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lower Right"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="numberDecimal"
-                android:textSize="50sp" />
+                android:textSize="35dp" />
 
             <EditText
                 android:id="@+id/lower_right_y"
@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="numberDecimal"
-                android:textSize="50sp" />
+                android:textSize="35dp" />
         </LinearLayout>
 
         <TextView
@@ -149,7 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="Depth Per Pass"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -162,7 +162,7 @@
                 android:layout_weight="1"
                 android:inputType="numberDecimal"
                 android:text="0.5"
-                android:textSize="50sp" />
+                android:textSize="35dp" />
 
             <ToggleButton
                 android:id="@+id/pass_unit"
@@ -171,7 +171,7 @@
                 android:layout_weight="1"
                 android:textOff="mm"
                 android:textOn="inch"
-                android:textSize="50sp" />
+                android:textSize="35dp" />
         </LinearLayout>
 
         <ToggleButton
@@ -181,7 +181,7 @@
             android:layout_weight="1"
             android:textOff="Halt!"
             android:textOn="Reset"
-            android:textSize="50sp" />
+            android:textSize="35dp" />
 
     </LinearLayout>
 

@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="First Hole"
-                android:textSize="35sp" />
+                android:textSize="25dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -32,7 +32,7 @@
                     android:layout_weight="1"
                     android:nextFocusDown="@+id/grid_first_y"
                     android:inputType="numberDecimal"
-                    android:textSize="35sp" />
+                    android:textSize="25dp" />
                 <EditText
                     android:id="@+id/grid_first_y"
                     android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                     android:layout_weight="1"
                     android:nextFocusDown="@+id/grid_safe"
                     android:inputType="numberDecimal"
-                    android:textSize="35sp" />
+                    android:textSize="25dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -58,7 +58,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Rows"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                     <EditText
                         android:id="@+id/grid_rows"
                         android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                         android:inputType="numberDecimal"
                         android:text="2"
                         android:nextFocusDown="@+id/grid_cols"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -79,7 +79,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Cols"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                     <EditText
                         android:id="@+id/grid_cols"
                         android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                         android:inputType="numberDecimal"
                         android:text="4"
                         android:nextFocusDown="@+id/grid_dx"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -107,7 +107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="dx"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                     <EditText
                         android:id="@+id/grid_dx"
                         android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                         android:inputType="numberDecimal"
                         android:text="20"
                         android:nextFocusDown="@+id/grid_dy"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -128,14 +128,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="dy"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                     <EditText
                         android:id="@+id/grid_dy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:text="20"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -145,28 +145,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Angle (A) deg"
-                android:textSize="35sp" />
+                android:textSize="25dp" />
             <EditText
                 android:id="@+id/grid_A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="40"
-                android:textSize="35sp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/grid_D_l"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Drill Size"
-                android:textSize="35sp" />
+                android:textSize="25dp" />
             <EditText
                 android:id="@+id/grid_D"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:text="10"
-                android:textSize="35sp" />
+                android:textSize="25dp" />
 
         </LinearLayout>
 
@@ -191,14 +191,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Safe"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                     <EditText
                         android:id="@+id/grid_safe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:nextFocusDown="@+id/grid_depth"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -211,14 +211,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Plunge"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                     <EditText
                         android:id="@+id/grid_depth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberSigned"
                         android:nextFocusDown="@+id/grid_rows"
-                        android:textSize="35sp" />
+                        android:textSize="25dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -233,7 +233,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Go!"
-                    android:textSize="35sp" />
+                    android:textSize="25dp" />
                 <ToggleButton
                     android:id="@+id/grid_halt"
                     android:layout_width="match_parent"
@@ -241,7 +241,7 @@
                     android:layout_weight="1"
                     android:textOff="Halt!"
                     android:textOn="Reset"
-                    android:textSize="35sp" />
+                    android:textSize="25dp" />
             </LinearLayout>
 
             <com.wolfteck.smoothtouch2.GridDiagram
