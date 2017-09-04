@@ -29,14 +29,58 @@
             android:text="Email G Code"/>
     </LinearLayout>
     <ImageView
-        android:id="@+id/imgView"
+        android:id="@+id/dmImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
-    <TextView
-        android:id="@+id/imgGcode"
-        android:scrollbars="vertical"
+    <LinearLayout
+        android:id="@+id/dmParameters"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/dmSpot_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spot Size (mm)"
+            android:textSize="20dp" />
+        <EditText
+            android:id="@+id/dmSpot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="0.5"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/dmImageDimensions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Image Size (mm)"
+            android:textSize="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/dmImageWidth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:textSize="20dp" />
+            <TextView
+                android:id="@+id/dmX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textSize="20dp" />
+            <EditText
+                android:id="@+id/dmImageHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
