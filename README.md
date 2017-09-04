@@ -1,1 +1,15 @@
-I ran into enough limitations with the current architecture of SmoothTouch, mostly due to the fact that I'm not an Android developer and I suck at this, that it was easier to start over from scratch.  The new tab/fragment based interface is much easier to work with and I've added some rudimentary support for multiple machine profiles.  Most of the guts are still missing right now, so no public release just yet.  Stay tuned.
+# Overview
+
+SmoothTouch is intended to be an easy to use and powerful machine (mill, lathe, laser cutter/engraver, 3d printer) interface for anyone from novice to professional.
+
+# Screenshots
+
+![surface](/screenshots/surface.png)
+![bolt_circle](/screenshots/bolt_circle.png)
+![grid](/screenshots/grid.png)
+![gcode_player](/screenshots/gcode_player.png)
+![code_review](/screenshots/code_review.png)
+
+# Credits
+
+None of this would be possible without [The Smoothie Project](https://github.com/Smoothieware).
